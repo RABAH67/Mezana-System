@@ -1,0 +1,46 @@
+{% load humanize %}
+<style>
+    #uni_modal .modal-footer {
+        display: none;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <dl>
+
+                <dt class="mdc-typography mdc-theme--primary">Fullname</dt>
+                <dd class="ps-3 fw-bolder">{{ employee.firstname }} {{ employee.lastname }}</dd>
+                <dt class="mdc-typography mdc-theme--primary">Gender</dt>
+                <dd class="ps-3 fw-bolder">{{ employee.gender }}</dd>
+                <dt class="mdc-typography mdc-theme--primary">Date Of Berth</dt>
+                <dd class="ps-3 fw-bolder">{{ employee.dob|date:'M d, Y' }}</dd>
+                <dt class="mdc-typography mdc-theme--primary">Date D'expiration De Visa</dt>
+                <dd class="ps-3 fw-bolder">{{ employee.age }} Joure</dd>
+                <dt class="mdc-typography mdc-theme--primary">Contact +213 | +7</dt>
+                <dd class="ps-3 fw-bolder">{{ employee.contact }}</dd>
+                <dt class="mdc-typography mdc-theme--primary">Passport</dt>
+                <dd class="ps-3 fw-bolder"><a href="{{ employee.pimage.url }}"><img style="width:60px;object-fit:cover;" src="{{ employee.pimage.url }}"></a></dd>
+            </dl>
+        </div>
+        <div class="col-sm-6">
+            <dl>
+                <dt class="mdc-typography mdc-theme--primary">Department</dt>
+                <dd class="ps-3 fw-bolder">{{ employee.department_id }}</dd>
+                <dt class="mdc-typography mdc-theme--primary">Position</dt>
+                <dd class="ps-3 fw-bolder">{{ employee.position_id }}</dd>
+
+                <dt class="mdc-typography mdc-theme--primary">Salary</dt>
+                <dd class="ps-3 fw-bolder">{{ employee.salary|intcomma }}</dd>
+
+                <dt class="mdc-typography mdc-theme--primary">Talon</dt>
+                <dd class="ps-3 fw-bolder"><a href="{{ employee.timage.url }}"><img style="width:60px;object-fit:cover;" src="{{ employee.timage.url }}"></a></dd>
+                
+            </dl>
+        </div>
+    </div>
+    <div class="clear-fix py-3"></div>
+    <div class="d-flex w-100 align-items-center justify-content-end">
+        <button class="btn btn-default border btn-sm rounded-0 d-flex align-items-center" type="button" data-bs-dismiss="modal"><i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">close</i> Close</button>
+    </div>
+</div>
